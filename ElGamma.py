@@ -9,7 +9,7 @@ class ElGamal():
     def Tao_khoa(self):
         p = self.p
         a = self.a
-        Alpha = 5
+        Alpha = 2
         Beta = pow_mod(Alpha, a, p)
         return Alpha, Beta
 
@@ -32,14 +32,17 @@ class ElGamal():
         return d
 
 if __name__ == '__main__':
-    p = 115792089237316195423570985008687907852837564279074904382605163141518161494337
-    a = 521
-    k = 1003
+    # p = 115792089237316195423570985008687907852837564279074904382605163141518161494337
+    p =10007
+    a = 513
+    k = 1010
+    x = 339220 % p
+    print('Ban ma:',x)
     elg = ElGamal(p, a, k)
     print('Tao khoa:')
     print(elg.Tao_khoa())
     print('Ma hoa:')
-    print(elg.Ma_hoa(13929))
+    print(elg.Ma_hoa(x))
     print('Giai ma:')
-    y1, y2 = elg.Ma_hoa(13929)
+    y1, y2 = elg.Ma_hoa(x)
     print(elg.Giai_ma(y1, y2))
